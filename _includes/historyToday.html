@@ -9,14 +9,44 @@
     <div class="row">
       <div class="col-lg-12">
         <table class="table table-striped table-bordered">
-          <tbody>
-            {% for project in site.portfolio %}
+          <thead>
             <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Thumbnail</th>
+              <th>Events</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% assign all_days = "" | split: "" %}
+            
+            {# Collect all days from monthly files #}
+            {% for month in site.portfolio %}
+              {% for day in month.days %}
+                {% assign all_days = all_days | push: day %}
+              {% endfor %}
+            {% endfor %}
+
+            {# Sort days by date #}
+            {% assign all_days = all_days | sort: "date" %}
+
+            {# Loop through each day and display its data #}
+            {% for day in all_days %}
+            <tr>
+              <td>{{ day.date }}</td>
+              <td>{{ day.title }}</td>
               <td>
-                <strong>{{ project.caption.title }}</strong><br>
-                <span class="text-muted">{{ project.caption.subtitle }}</span>
-                <br>
-                <img src="{{ project.caption.thumbnail }}" class="img-fluid" alt="Thumbnail" style="max-width: 100px;">
+                <img src="{{ day.thumbnail }}" class="img-fluid" alt="{{ day.title }}" style="max-width: 100px;">
+              </td>
+              <td>
+                <ul>
+                  {% for year_events in day.years %}
+                    {% assign year = year_events[0] %}
+                    {% assign events = year_events[1] %}
+                    <li><strong>{{ year }}:</strong> {{ events | join: ', ' }}</li>
+                  {% endfor %}
+                </ul>
               </td>
               <td class="text-right">
                 <a class="btn btn-primary btn-sm" data-toggle="modal" href="#p{{ forloop.index }}">View</a>
