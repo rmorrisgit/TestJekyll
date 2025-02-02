@@ -5,6 +5,12 @@ en: &DEFAULT_EN
     text: Discover historical events grouped by month and day.
     button: Explore Now
     buttonlink: "#history"
+    
+  portfolio:
+    title: "portfolio_grid"
+    text: "Potential Feature"
+    section: portfolio
+    closebutton: "Close Project"
 
   history:
     title: "History by Month"

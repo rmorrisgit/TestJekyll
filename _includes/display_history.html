@@ -1,9 +1,9 @@
-<section class="bg-light page-section" id="{{ site.data.sitetext.portfolio.section | default: "portfolio" }}">
+<section class="bg-light page-section" id="{{ site.data.sitetext.history.section | default: "history" }}">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">{{ site.data.sitetext.portfolio.title | markdownify | default: "History" }}</h2>
-        <h3 class="section-subheading text-muted">{{ site.data.sitetext.portfolio.text | markdownify }}</h3>
+      <div class="col-lg-12 text-center mt-5">
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].history.title | markdownify | default: "History" }}</h2>
+        <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].history.text | markdownify }}</h3>
       </div>
     </div>
 
