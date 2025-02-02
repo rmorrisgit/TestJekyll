@@ -16,10 +16,12 @@ days:
     years:
       1863:
         events:
-          - "Emancipation Proclamation issued by Abraham Lincoln."
+          - "Event 1"
+          - "Event 2"
       1999:
         events:
-          - "The Euro becomes the official currency of 11 EU countries."
+          - "Event 3"
+          - "Event 4"
 
   - date: "Febuary 2"
     title: "Second Day of Febuary"
