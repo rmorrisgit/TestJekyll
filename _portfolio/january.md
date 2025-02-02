@@ -20,6 +20,7 @@ days:
       1999:
         events:
           - "The Euro becomes the official currency of 11 EU countries."
+          - "yeyyeyeyeyeye."
 
   - date: "January 2"
     title: "Second Day of January"

@@ -22,6 +22,10 @@ days:
         events:
           - "Event 3"
           - "Event 4"
+      1865:
+        events:
+          - "Event 1"
+          - "Event 2"
 
   - date: "Febuary 2"
     title: "Second Day of Febuary"
