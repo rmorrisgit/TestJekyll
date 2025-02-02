@@ -1,16 +1,16 @@
 ---
-title: Febuary
-subtitle: Subtitle for Febuary
+title: February
+subtitle: Subtitle for February
 image: assets/img/portfolio/01-full.jpg
-alt: "Febuary events"
+alt: "February events"
 
 caption:
-  title: "Febuary"
-  subtitle: "Events in Febuary"
+  title: "February"
+  subtitle: "Events in February"
   thumbnail: assets/img/portfolio/01-thumbnail.jpg
 
 days:
-  - date: "Febuary 1"
+  - date: "February 1"
     title: "New Year's Day"
     thumbnail: "assets/img/history/january-1.jpg"
     years:
@@ -27,11 +27,18 @@ days:
           - "Event 1"
           - "Event 2"
 
-  - date: "Febuary 2"
-    title: "Second Day of Febuary"
+  - date: "February 2"
+    title: "Second Day of February"
     thumbnail: "assets/img/history/january-2.jpg"
     years:
       1943:
         events:
           - "End of the Battle of Stalingrad during World War II."
+          - "test 3."
+      2025:
+        events:
+          - "test"
+          - "test 2"
+             
+      
 ---

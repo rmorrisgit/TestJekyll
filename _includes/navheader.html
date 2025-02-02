@@ -1,17 +1,17 @@
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-	  <a class="navbar-brand js-scroll-trigger" href="#page-top">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <h5>Today In History</h5>
-      </a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-        {% if site.locale and site.locale != "" and site.locale != nil %}
-        {% for link in site.data.navigation[site.locale].nav %}
+    </a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ml-auto">
+        {% assign navLinks = site.data.navigation[site.locale].nav | default: site.data.navigation.nav %}
+        {% for link in navLinks %}
           <li class="nav-item">
             {%- if link.url -%}
               <a class="nav-link js-scroll-trigger" href="{{ link.url }}">{{ link.title }}</a>
@@ -22,24 +22,76 @@
             {%- endif -%}
           </li>
         {% endfor %}
-        {% else %}
-        {% for link in site.data.navigation.nav %}
-        <li class="nav-item">
-          {%- if link.url -%}
-            <a class="nav-link js-scroll-trigger" href="{{ link.url }}">{{ link.title }}</a>
-          {%- elsif link.section -%}
-            <a class="nav-link js-scroll-trigger" href="#{{ link.section }}">{{ link.title }}</a>
-          {%- else -%}
-            <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
-          {%- endif -%}
-        </li>
-        {% endfor %}
-        {% endif %}
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
-  <!-- End Navigation -->
-  
+  </div>
+</nav>
+<!-- End Navigation -->
+<!-- Header -->
+<header class="masthead">
+  <div class="container bg-dark">
+    <div class="intro-text">
+      <!-- Date Section -->
+      <div class="row align-items-center">
+        <div class="col-md-3 text-center date-container" style="max-width: 200px; margin: 0">
+          <div class="date-box">
+            <h1 class="date-number">{{ "now" | date: "%d" }}</h1>
+            <h2 class="date-month">{{ "now" | date: "%B" }}</h2>
+          </div>
+        </div>
 
-  <!-- End Header -->
+        <!-- Title Section -->
+        <div class="col-md-9 text-center title-container">
+          <h1 class="todayInHistory">Today in History</h1>
+          <h3 class="subtitle">Historical Events</h3>
+        </div>
+      </div>
+
+      <!-- Events Table -->
+      <div class="row events-table ">
+        <div class="col-md-7 mx-auto">
+          <table class="table table-hover mb-0">
+            <tbody>
+              {% assign today = "now" | date: "%B %-d" %}
+
+<!-- Events Table -->
+<div class="row events-table mt-4">
+  <div class="col-md-7 mx-auto">
+    <table class="table table-hover mb-0">
+      <tbody>
+        {% assign todays_events = "" | split: "" %}
+
+        {% for month in site.portfolio %}
+          {% assign filtered_days = month.days | where: "date", today %}
+          {% for day in filtered_days %}
+            {% assign todays_events = todays_events | push: day %}
+          {% endfor %}
+        {% endfor %}
+
+        {% if todays_events.size > 0 %}
+          {% for day in todays_events %}
+            {% for year_events in day.years %}
+              {% assign year = year_events[0] %}
+              {% assign events = year_events[1].events %}
+              {% for event in events %}
+                <tr>
+                  <td><strong>{{ year }}:</strong> {{ event }}</td>
+                </tr>
+              {% endfor %}
+            {% endfor %}
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td class="text-center text-muted">No historical events found for today.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+              
+    </div>
+  </div>
+</header>
+<!-- End Header -->

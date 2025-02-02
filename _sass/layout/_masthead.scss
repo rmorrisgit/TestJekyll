@@ -1,0 +1,124 @@
+.masthead {
+    background-color: #f8f9fa;
+  }
+  
+  .container.bg-dark {
+    // background-color: #343a40;
+    border-radius: 10px;
+ 
+  }
+  
+  .intro-text {
+    text-align: center;
+  }
+  
+  .date-container {
+    background-color: $primary;
+
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .date-box {
+    text-align: center;
+  }
+  
+  .date-number {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .date-month {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .title-container {
+    margin-top: 20px;
+  }
+  
+  .todayInHistory {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .subtitle {
+    font-size: 24px;
+    color: #6c757d;
+  }
+  
+  .events-table {
+    margin-top: 30px;
+  }
+  
+  .events-table .table {
+    display: table;
+    width: 100%;
+    text-align: left;
+    background-color: #fff;
+    color: #000; /* Ensure text color contrasts with the background */
+  }
+  
+  .events-table td {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+// Styling for the masthead
+header.masthead {
+//   text-align: center;
+  color: rgb(0, 0, 0);
+//   background-image: url("#{$header-image}");
+//   background-repeat: no-repeat;
+//   background-attachment: scroll;
+//   background-position: center center;
+//   background-size: cover;
+
+.todayInHistory {
+
+}
+  .intro-text {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    .intro-lead-in {
+      font-size: 22px;
+      font-style: italic;
+      line-height: 22px;
+      margin-bottom: 25px;
+      @include serif-font;
+    }
+    .intro-heading {
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 50px;
+      margin-bottom: 25px;
+      @include heading-font;
+    }
+  }
+}
+@media (min-width: 768px) {
+  header.masthead {
+    .intro-text {
+      padding-top: 300px;
+      padding-bottom: 200px;
+      .intro-lead-in {
+        font-size: 40px;
+        font-style: italic;
+        line-height: 40px;
+        margin-bottom: 25px;
+        @include serif-font;
+      }
+      .intro-heading {
+        font-size: 75px;
+        font-weight: 700;
+        line-height: 75px;
+        margin-bottom: 50px;
+        @include heading-font;
+      }
+    }
+  }
+}
