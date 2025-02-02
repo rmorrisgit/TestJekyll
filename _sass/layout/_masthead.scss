@@ -14,7 +14,7 @@
   
   .date-container {
     background-color: $primary;
-
+    margin: auto;
     color: #000000;
     padding: 20px;
     border-radius: 10px;
@@ -101,6 +101,8 @@ header.masthead {
   }
 }
 @media (min-width: 768px) {
+
+ 
   header.masthead {
     .intro-text {
       padding-top: 300px;
